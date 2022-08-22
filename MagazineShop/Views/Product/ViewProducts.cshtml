@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewProducts</title>
+</head>
+<body>
+    <h1>Все продукты:</h1>
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (Product product in Model.allProducts)
+            {
+                @Html.Partial("AllProducts", product)
+            }
+        }
+    </div>
+    <p><a class="btn btn-lg btn-light w-100 mx-0 container-fluid" data-bs-dismiss="modal" asp-area="" asp-controller="Home" asp-action="Index">Close</a></p>
+</body>
+</html>

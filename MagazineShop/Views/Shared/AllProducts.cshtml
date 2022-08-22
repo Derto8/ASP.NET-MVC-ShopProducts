@@ -1,0 +1,14 @@
+﻿@model Product
+
+<div class="col-lg-4">
+    <img class="img-thumbnail" src="@Model.Img" alt="@Model.Name" />
+    <h2>@Model.Name</h2>
+    @if(Model.Price != Model.GetDiscountPrice(Model)){
+        <p>Цена: <s>@Model.Price</s>, @Model.GetDiscountPrice(Model), скидка @Model.GetSale(Model)%</p>
+    }
+    else{
+        <p>Цена: @Model.GetDiscountPrice(Model)</p>
+    }
+    <p>Производитель: @Model.Manufacturer</p>
+    <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+</div>

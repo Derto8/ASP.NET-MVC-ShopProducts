@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewUserSettings</title>
+</head>
+<body>
+    <h1>Данные пользователя:</h1>
+    @{
+        foreach (var settings in Model.allUserSettings)
+        {
+            <div>
+                <h2>Имя пользователя: @settings.Name</h2>
+                <p>Адрес пользователя: @settings.Adress</p>
+                <b>Баланс: @settings.Balance</b>
+                <p>Потрачено: @settings.Spend</p>
+            </div>
+        }
+    }
+</body>
+</html>
