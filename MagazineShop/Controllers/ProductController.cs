@@ -24,7 +24,6 @@ namespace MagazineShop.Controllers
             return View(obj);
         }
 
-        [HttpPost]
         public IActionResult AddProduct(AddProduct addProduct)
         {
             return View(addProduct);
