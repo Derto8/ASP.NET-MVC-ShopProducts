@@ -19,6 +19,58 @@ namespace MagazineShop.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("MagazineShop.Models.OrderDetailModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("Price")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetailModel");
+                });
+
+            modelBuilder.Entity("MagazineShop.Models.OrderModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Price")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderModel");
+                });
+
             modelBuilder.Entity("MagazineShop.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -43,27 +95,27 @@ namespace MagazineShop.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.ShopProductItem", b =>
+            modelBuilder.Entity("MagazineShop.Models.ShopCartItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ShowProductId")
+                    b.Property<string>("ShopCartId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ShopProductItem");
+                    b.ToTable("ShopCartItem");
                 });
 
             modelBuilder.Entity("MagazineShop.Models.User", b =>
@@ -100,16 +152,6 @@ namespace MagazineShop.Migrations
                     b.ToTable("Candies");
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.Products.Milk", b =>
-                {
-                    b.HasBaseType("MagazineShop.Models.Product");
-
-                    b.Property<string>("MilkName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("Milk");
-                });
-
             modelBuilder.Entity("MagazineShop.Models.Products.TShirt", b =>
                 {
                     b.HasBaseType("MagazineShop.Models.Product");
@@ -123,7 +165,26 @@ namespace MagazineShop.Migrations
                     b.ToTable("TShirts");
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.ShopProductItem", b =>
+            modelBuilder.Entity("MagazineShop.Models.OrderDetailModel", b =>
+                {
+                    b.HasOne("MagazineShop.Models.OrderModel", "Order")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MagazineShop.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("MagazineShop.Models.ShopCartItem", b =>
                 {
                     b.HasOne("MagazineShop.Models.Product", "Product")
                         .WithMany()
@@ -141,15 +202,6 @@ namespace MagazineShop.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.Products.Milk", b =>
-                {
-                    b.HasOne("MagazineShop.Models.Product", null)
-                        .WithOne()
-                        .HasForeignKey("MagazineShop.Models.Products.Milk", "Id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MagazineShop.Models.Products.TShirt", b =>
                 {
                     b.HasOne("MagazineShop.Models.Product", null)
@@ -157,6 +209,11 @@ namespace MagazineShop.Migrations
                         .HasForeignKey("MagazineShop.Models.Products.TShirt", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MagazineShop.Models.OrderModel", b =>
+                {
+                    b.Navigation("OrderDetail");
                 });
 #pragma warning restore 612, 618
         }

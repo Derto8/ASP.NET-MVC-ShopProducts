@@ -40,22 +40,8 @@ using MagazineShop.ViewModels;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 5 "C:\Users\Николай\source\repos\MagazineShop\MagazineShop\Views\_ViewImports.cshtml"
-using System.Web;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\Николай\source\repos\MagazineShop\MagazineShop\Views\_ViewImports.cshtml"
-using Microsoft.AspNetCore.Http;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3813e58872bf94427e556df0543cd973e2eef980", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6059b56843c1e8138c95761245aa5ed1700fe4f9", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

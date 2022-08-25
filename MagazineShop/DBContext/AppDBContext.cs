@@ -12,7 +12,8 @@ namespace MagazineShop.DBContext
         public DbSet<Product> Products { get; set; }
         public DbSet<TShirt> TShirts { get; set; }
         public DbSet<Candies> Candies { get; set; }
-        //public DbSet<Milk> Milk { get; set; }
-        public DbSet<ShopProductItem> ShopProductItem { get; set; }
+        public DbSet<ShopCartItem> ShopCartItem { get; set; }
+        public DbSet<OrderModel> OrderModel { get; set; }
+        public DbSet<OrderDetailModel> OrderDetailModel { get; set; }
     }
 }

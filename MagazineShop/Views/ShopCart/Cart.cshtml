@@ -1,0 +1,23 @@
+﻿@model ShopCartViewModel
+<div class="container">
+    @{
+            <h2>Покупки в корзине:</h2>
+            foreach (var el in Model.shopCart.listShopItems)
+            {
+                <div class="alert alert-warning mt-3">
+                    <b>Товар: </b> @el.Product.Name<br />
+                @if (el.Price != el.Product.GetDiscountPrice(el.Product))
+                {
+                        <p>Цена: <s>@el.Price.ToString("c")</s>, @el.Product.GetDiscountPrice(el.Product).ToString("c"), скидка @el.Product.GetSale(el.Product)%</p>
+                }
+                else
+                {
+                        <p>Цена: @el.Product.GetDiscountPrice(el.Product).ToString("c")</p>
+                }
+                </div>
+            }
+    }
+   
+    <hr />
+    <a class="btn btn-danger" asp-controller="Order" asp-action="CheckOut">Оплатить</a>
+</div>

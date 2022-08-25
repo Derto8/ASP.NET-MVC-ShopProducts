@@ -69,21 +69,20 @@ namespace MagazineShop
                     );
             }
 
-            //if (!context.Milk.Any())
-            //{
-            //    context.AddRange(
-            //            new Milk
-            //            (
-            //            "Молоко",
-            //            100,
-            //            "Произоводитель",
-            //            "/img/Molotov.png"
-            //            )
-            //            {
-            //                MilkName = "Молоко",
-            //            }
-            //        );
-            //}
+            if (!context.Products.Any())
+            {
+                context.AddRange(
+                        new Product
+                        (
+                        )
+                        {
+                            Name = "ggd",
+                            Price = 999,
+                            Manufacturer = "df",
+                            Img = "/img/Molotov.png"
+                        }
+                    );
+            }
 
             context.SaveChanges();
         }

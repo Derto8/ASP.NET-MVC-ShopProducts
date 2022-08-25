@@ -35,11 +35,5 @@ namespace MagazineShop.Mocks
             }
             set { }
         }
-
-        //public IEnumerable<Milk> AllMilk => throw new System.NotImplementedException();
-
-        public IEnumerable<Candies> AllCandies => throw new System.NotImplementedException();
-
-        public IEnumerable<TShirt> AllTShirts => throw new System.NotImplementedException();
     }
 }

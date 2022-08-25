@@ -3,12 +3,16 @@
 <div class="col-lg-4">
     <img class="img-thumbnail" src="@Model.Img" alt="@Model.Name" />
     <h2>@Model.Name</h2>
-    @if(Model.Price != Model.GetDiscountPrice(Model)){
-        <p>Цена: <s>@Model.Price</s>, @Model.GetDiscountPrice(Model), скидка @Model.GetSale(Model)%</p>
+    @{
+        double price = Model.Price;
+        double priceSale = Model.GetDiscountPrice(Model);
+    }
+    @if(price != priceSale){
+        <p>Цена: <s>@price.ToString("c")</s>, @priceSale.ToString("c"), скидка @Model.GetSale(Model)%</p>
     }
     else{
-        <p>Цена: @Model.GetDiscountPrice(Model)</p>
+        <p>Цена: @Model.GetDiscountPrice(Model).ToString("c")</p>
     }
     <p>Производитель: @Model.Manufacturer</p>
-    <p><a class="btn btn-warning" href="#">Подробнее</a></p>
+    <p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-id="@Model.Id">Добавить в корзину</a></p>
 </div>

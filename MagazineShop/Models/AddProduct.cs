@@ -11,23 +11,27 @@ namespace MagazineShop.Models
         public string Id { get; set; }
 
         [Display(Name = "Введите название товара")]
-        [StringLength(40)]
-        [Required(ErrorMessage = "Длина названия товара не более 40 символов!")]
+        [MinLength(5)]
+        [Required(ErrorMessage = "Длина названия товара не менее 5 символов!")]
         public string Name { get; set; }
 
         [Display(Name = "Введите цену за товар")]
         public double Price { get; set; }
 
+
         [Display(Name = "Введите название компании производителя")]
-        [StringLength(40)]
-        [Required(ErrorMessage = "Длина названия компании не более 40 символов!")]
+        [MinLength(5)]
+        [Required(ErrorMessage = "Длина названия компании не менее 5 символов!")]
         public string Manufacturer { get; set; }
 
         [Display(Name = "Введите адрес к изображению")]
-        [StringLength(100)]
-        [Required(ErrorMessage = "Длина адреса картинки не более 100 символов!")]
+        [MinLength(5)]
+        [Required(ErrorMessage = "Длина адреса картинки не менее 5 символов!")]
         public string Img { get; set; }
+
         [Display(Name = "Введите категорию товара")]
+        [MinLength(1)]
+        [Required(ErrorMessage = "Длина категории товара не менее 1 символа!")]
         public string Class { get; set; }
     }
 }

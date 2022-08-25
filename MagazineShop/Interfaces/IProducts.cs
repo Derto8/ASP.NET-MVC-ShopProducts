@@ -7,8 +7,5 @@ namespace MagazineShop.Interfaces
     public interface IProducts
     {
         IEnumerable<Product> AllProducts { get; }
-        //IEnumerable<Milk> AllMilk { get; }
-        IEnumerable<Candies> AllCandies { get; }
-        IEnumerable<TShirt> AllTShirts { get; }
     }
 }

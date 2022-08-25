@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MagazineShop.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220821132159_Instance 2")]
-    partial class Instance2
+    [Migration("20220822145757_Initial 2")]
+    partial class Initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,9 +27,6 @@ namespace MagazineShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
@@ -48,27 +45,27 @@ namespace MagazineShop.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.ShopProductItem", b =>
+            modelBuilder.Entity("MagazineShop.Models.ShopCartItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ShowProductId")
+                    b.Property<string>("ShopCartId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ShopProductItem");
+                    b.ToTable("ShopCartItem");
                 });
 
             modelBuilder.Entity("MagazineShop.Models.User", b =>
@@ -105,16 +102,6 @@ namespace MagazineShop.Migrations
                     b.ToTable("Candies");
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.Products.Milk", b =>
-                {
-                    b.HasBaseType("MagazineShop.Models.Product");
-
-                    b.Property<string>("MilkName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("Milk");
-                });
-
             modelBuilder.Entity("MagazineShop.Models.Products.TShirt", b =>
                 {
                     b.HasBaseType("MagazineShop.Models.Product");
@@ -128,7 +115,7 @@ namespace MagazineShop.Migrations
                     b.ToTable("TShirts");
                 });
 
-            modelBuilder.Entity("MagazineShop.Models.ShopProductItem", b =>
+            modelBuilder.Entity("MagazineShop.Models.ShopCartItem", b =>
                 {
                     b.HasOne("MagazineShop.Models.Product", "Product")
                         .WithMany()
@@ -142,15 +129,6 @@ namespace MagazineShop.Migrations
                     b.HasOne("MagazineShop.Models.Product", null)
                         .WithOne()
                         .HasForeignKey("MagazineShop.Models.Products.Candies", "Id")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MagazineShop.Models.Products.Milk", b =>
-                {
-                    b.HasOne("MagazineShop.Models.Product", null)
-                        .WithOne()
-                        .HasForeignKey("MagazineShop.Models.Products.Milk", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });

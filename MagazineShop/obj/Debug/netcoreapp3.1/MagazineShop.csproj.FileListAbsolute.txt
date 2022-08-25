@@ -164,3 +164,9 @@ C:\Users\Николай\source\repos\MagazineShop\MagazineShop\bin\Debug\netcore
 C:\Users\Николай\source\repos\MagazineShop\MagazineShop\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AllProducts.cshtml.g.cs
 C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\Product\AddProduct.cshtml.g.cs
+C:\Users\Николай\source\repos\MagazineShop\MagazineShop\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\ShopCart\Cart.cshtml.g.cs
+C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\Order\CheckOut.cshtml.g.cs
+C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\Order\Complete.cshtml.g.cs
+C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\Order\UnComplete.cshtml.g.cs
+C:\Users\Николай\source\repos\MagazineShop\MagazineShop\obj\Debug\netcoreapp3.1\Razor\Views\Product\AddedProduct.cshtml.g.cs
