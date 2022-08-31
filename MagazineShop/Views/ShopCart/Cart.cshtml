@@ -19,5 +19,13 @@
     }
    
     <hr />
-    <a class="btn btn-danger" asp-controller="Order" asp-action="CheckOut">Оплатить</a>
+
+    @{
+        if(Model.shopCart.listShopItems.Count == 0){
+            <a class="btn btn-danger" asp-controller="Order" asp-action="UnComplete">Оплатить</a>
+        }
+        else{
+            <a class="btn btn-danger" asp-controller="Order" asp-action="CheckOut">Оплатить</a>
+        }
+    }
 </div>

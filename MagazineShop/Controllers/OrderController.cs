@@ -25,8 +25,8 @@ namespace MagazineShop.Controllers
         {
             shopCart.listShopItems = shopCart.getShopItems();
 
-            if (shopCart.listShopItems.Count == 0)
-                return RedirectToAction("UnComplete");
+            //if (shopCart.listShopItems.Count == 0)
+            //    return RedirectToAction("UnComplete");
             if (ModelState.IsValid)
             {
                 allOrders.CreateOrder(order);

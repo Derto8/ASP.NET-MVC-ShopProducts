@@ -78,12 +78,6 @@ namespace MagazineShop
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                AppDBContext content = scope.ServiceProvider.GetRequiredService<AppDBContext>();
-                DBObjects.Initial(content);
-            }
         }
     }
 }
