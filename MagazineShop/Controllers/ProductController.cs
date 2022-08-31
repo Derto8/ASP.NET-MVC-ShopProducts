@@ -26,12 +26,15 @@ namespace MagazineShop.Controllers
             return View(obj);
         }
 
+<<<<<<< HEAD
         public IActionResult AddProduct()
         {
             return View();
         }
 
         [HttpPost]
+=======
+>>>>>>> b1aa287cf344866229ed501a0f12ec574baceeac
         public IActionResult AddProduct(AddProduct addProduct)
         {
             if (ModelState.IsValid)
